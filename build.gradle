@@ -1,0 +1,32 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
+    }
+}
+
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.2.0"
+}
+
+group 'io.github.kosmx.playermover'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'io.freefair.lombok'
+    repositories {
+        mavenCentral()
+        maven {
+            name = "Velocity"
+            url = "https://nexus.velocitypowered.com/repository/maven-public/"
+        }
+    }
+    archivesBaseName = "playermover"
+}
+
+subprojects {
+    group rootProject.group
+}
+dependencies {
+    //implementation "com.velocitypowered:velocity-api:3.0.1"
+}

@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+
+group 'io.github.kosmx.playermover'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    shadow
+}
+
+dependencies {
+    implementation project(':common')
+    implementation "com.velocitypowered:velocity-api:3.0.1"
+    annotationProcessor 'com.velocitypowered:velocity-api:3.0.1'
+    shadow project(':common')
+}
+
+shadowJar{
+    dependsOn jar
+    configurations = [project.configurations.shadow]
+    classifier "velocity"
+}
+
+jar.finalizedBy(shadowJar)

@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+
+group 'io.github.kosmx.playermover'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        name = 'spigot repo???'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/public/'
+    }
+    maven {
+        name = 'jitpack.io'
+        url = 'https://jitpack.io'
+    }
+    maven { url = "https://repo.codemc.org/repository/maven-public/" }
+    maven { url = "https://papermc.io/repo/repository/maven-public/" }
+}
+
+configurations {
+    shadow
+}
+
+dependencies {
+    implementation project(':common')
+    //implementation files('CommandHook.jar')
+    //implementation "com.velocitypowered:velocity-api:3.0.1"
+    //implementation 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+
+    implementation 'dev.jorel.CommandAPI:commandapi-core:6.3.1'
+
+    shadow project(':common')
+}
+
+shadowJar{
+    dependsOn jar
+    configurations = [project.configurations.shadow]
+    classifier "spigot"
+}
+
+jar.finalizedBy(shadowJar)

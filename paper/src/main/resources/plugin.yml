@@ -1,0 +1,4 @@
+name: playermover
+main: io.github.kosmx.playermover.spigot.SpigotPlugin
+version: 3.1415
+author: KosmX
