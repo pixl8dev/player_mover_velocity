@@ -25,7 +25,7 @@ dependencies {
 shadowJar{
     dependsOn jar
     configurations = [project.configurations.shadow]
-    classifier "velocity"
+    archiveClassifier.set("velocity")
 }
 
 jar.finalizedBy(shadowJar)

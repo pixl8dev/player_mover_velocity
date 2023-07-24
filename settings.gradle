@@ -1,5 +1,0 @@
-rootProject.name = 'player_mover'
-include 'common'
-include 'velocity'
-include 'paper'
-

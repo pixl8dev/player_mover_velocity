@@ -1,12 +1,12 @@
 buildscript {
     dependencies {
-        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
+        classpath "com.github.johnrengelman:shadow:8.1.1"
     }
 }
 
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "6.2.0"
+    id "io.freefair.lombok" version "8.1.0"
 }
 
 group 'io.github.kosmx.playermover'
@@ -19,6 +19,9 @@ allprojects {
         maven {
             name = "Velocity"
             url = "https://nexus.velocitypowered.com/repository/maven-public/"
+            content {
+                excludeGroupByRegex("net\\.fabricmc.*")
+            }
         }
     }
     archivesBaseName = "playermover"

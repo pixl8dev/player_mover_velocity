@@ -38,7 +38,7 @@ dependencies {
 shadowJar{
     dependsOn jar
     configurations = [project.configurations.shadow]
-    classifier "spigot"
+    archiveClassifier.set("spigot")
 }
 
 jar.finalizedBy(shadowJar)

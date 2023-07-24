@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "player_mover",
+	"version": "${version}",
+	"name": "stuff",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"KosmX"
+	],
+	"license": "CC0-1.0",
+	"environment": "server",
+	"entrypoints": {
+		"main": [
+			{
+				"adapter": "kotlin",
+				"value": "io.github.kosmx.playermover.fabric.FabricInit"
+			}
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=1.9.5+kotlin.1.8.22"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
